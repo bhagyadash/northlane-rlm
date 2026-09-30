@@ -3,6 +3,7 @@ import LifecycleTab from './tabs/LifecycleTab.jsx'
 import ProductInfoTab from './tabs/ProductInfoTab.jsx'
 import NewFrontiersTab from './tabs/NewFrontiersTab.jsx'
 import VisionTab from './tabs/VisionTab.jsx'
+import Pax8Tab from './tabs/Pax8Tab.jsx'
 
 const TABS = [
   {
@@ -28,6 +29,12 @@ const TABS = [
     label: 'Vision & requirements',
     heading: 'Vision & requirements',
     sub: 'The three tabs above are Phase 1 only. This is the requirements review for what a production revenue lifecycle platform needs next.',
+  },
+  {
+    key: 'pax8',
+    label: 'For Pax8',
+    heading: 'For Pax8 — VP of Product, Fintech',
+    sub: 'An independent product-thinking exercise mapping this prototype to the role — not affiliated with or endorsed by Pax8.',
   },
 ]
 
@@ -67,6 +74,7 @@ export default function App() {
         {view === 'pim' && <ProductInfoTab />}
         {view === 'frontiers' && <NewFrontiersTab />}
         {view === 'vision' && <VisionTab />}
+        {view === 'pax8' && <Pax8Tab />}
       </div>
     </div>
   )

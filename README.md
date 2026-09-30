@@ -31,7 +31,9 @@ Voss via CloudRelay), a customs hold on hardware (Kestrel Biologics), an expired
 rate lock (Solstice Robotics), a metering-pipeline outage (Bellwether Analytics), a
 statutory withholding-tax reconciliation (Vantage Retail Group), or a credit-term
 exception that blocks an order from booking at all (Torque Industrial). Every processed
-deal is retained in a history list with its full trail re-openable later.
+deal is retained in a history list with its full trail re-openable later. A collapsed-by-
+default **"New to quote-to-cash? Start here"** primer explains the six pipeline steps in
+plain English for anyone unfamiliar with the concept.
 
 **Product Information tab** — the Product Information Service (PIM): the product
 catalog, localized price books across all seven currencies, and bundle definitions that
@@ -51,6 +53,15 @@ grounded in a specific deal from the Lifecycle Console as evidence, not a hypoth
 vs. planned across all six domains), non-goals, open questions, and phasing for what a
 production version needs next.
 
+**For Pax8 tab** — an independent product-thinking exercise prepared ahead of an
+interview conversation for Pax8's VP of Product, Fintech role, mapping each of the
+role's seven pillars to where this prototype already reflects that thinking (and where
+a prototype honestly can't stand in for real experience, e.g. team leadership). Includes
+a worked four-party marketplace settlement example (end customer → reselling MSP →
+distributor → ISV) built on Northlane's own catalog pricing, a today-vs-next-gen
+settlement comparison, and four concrete product bets. Not affiliated with, endorsed by,
+or built using any non-public information from Pax8.
+
 ## What's real vs. assumed
 
 | Item | Status |
@@ -61,8 +72,9 @@ production version needs next.
 | "Clear" / "held" deal status | Simulated status only — no real invoice is sent and no payment is charged |
 | Product Information tab's price-book coverage and localization gaps | Live, computed from the same catalog data file — not duplicated or hardcoded per tab |
 | New Frontiers tab's deal references | Pulled live from the Lifecycle Console's data (not duplicated), so the tabs never disagree |
-| Multi-party marketplace settlement (Pax8-style splits) | Narrated only — not actually computed or executed as separate settlement legs |
+| Multi-party marketplace settlement (Pax8-style splits) | New Frontiers tab: narrated only. For Pax8 tab: an actually-computed worked example, but with invented company names, seats, and margins — not Pax8's real pricing or partners |
 | Vision & requirements content | Product framing for this prototype, not a finalized spec |
+| For Pax8 tab | Independent interview prep, not an official or authorized Pax8 artifact — see its in-app disclaimer |
 
 ## Stack
 

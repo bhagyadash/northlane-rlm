@@ -21,6 +21,7 @@ import {
 import { DEALS, STEP_ORDER } from '../data/lifecycle.js'
 import { money } from '../lib/format.js'
 import { ReasoningStep, ThinkingStep, DecisionBanner, StatCard } from '../components/ui.jsx'
+import LifecycleExplainer from '../components/LifecycleExplainer.jsx'
 
 const STEP_META = {
   quote: { icon: ClipboardList, label: 'Quote & order (CPQ)' },
@@ -252,6 +253,8 @@ export default function LifecycleTab() {
           withholding-tax reconciliation. When a step can't clear, the trail says exactly why and holds the deal.
         </p>
       </div>
+
+      <LifecycleExplainer />
 
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
         <StatCard label="Processed" value={stats.processed} sub={`${queue.length} left in queue`} />
