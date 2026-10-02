@@ -60,6 +60,13 @@ supporting targets, system architecture (built vs. planned across all six domain
 including agent-initiated purchasing / agent-to-agent billing as a planned capability),
 non-goals, open questions, and phasing for what a production version needs next.
 
+**What I learned tab** — the goal behind the prototype and the five questions it set out
+to answer, the assumptions behind its numbers (each tagged structural / invented /
+simplified / not sourced), six things the exercise made concrete, ten shortcomings stated
+plainly (synthetic data, no integrations, ISV rather than distributor vantage point,
+no exception workflow, unvalidated metrics, and more), and the questions it raises but
+cannot answer.
+
 **For Pax8 tab** — applies this prototype's thinking to the shape of a multi-party
 marketplace, like Pax8's own business. Includes a worked four-party marketplace
 settlement example (end customer → reselling MSP → distributor → ISV) built on
@@ -79,6 +86,7 @@ affiliated with, endorsed by, or built using any non-public information from Pax
 | New Frontiers tab's deal references | Pulled live from the Lifecycle Console's data (not duplicated), so the tabs never disagree |
 | Multi-party marketplace settlement (Pax8-style splits) | New Frontiers tab: narrated only. For Pax8 tab: an actually-computed worked example, but with invented company names, seats, and margins — not Pax8's real pricing or partners |
 | Vision & requirements content | Product framing for this prototype, not a finalized spec |
+| What I learned tab | My own framing of the goal, assumptions, and limits — it is the honest caveat layer for every other tab |
 | For Pax8 tab | Independent interview prep, not an official or authorized Pax8 artifact — see its in-app disclaimer |
 
 ## Stack

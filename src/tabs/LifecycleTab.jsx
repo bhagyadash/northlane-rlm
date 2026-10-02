@@ -259,7 +259,7 @@ export default function LifecycleTab() {
         <Sparkles size={14} className="mt-0.5 shrink-0 text-sky-400" />
         <p>
           Every card below is the literal step a deal took across quoting, fulfillment, metering, FX, invoicing, and
-          cash application — not a progress bar. Seven deals span five currencies, a hardware customs hold, a
+          cash application — not a progress bar. Seven deals span seven currencies, a hardware customs hold, a
           marketplace-partner attribution gap, an expired FX rate lock, a metering-pipeline outage, and a statutory
           withholding-tax reconciliation. When a step can't clear, the trail says exactly why and holds the deal.
         </p>

@@ -87,7 +87,7 @@ const ARCH_STEPS = [
   },
   {
     title: 'Revenue/billing ops exception workspace',
-    detail: 'Held deals (4 of 7 in this demo) get assigned, investigated, and released by a revenue ops team. Not built — this prototype only surfaces the hold and its reason.',
+    detail: 'Held deals (6 of 7 in this demo) get assigned, investigated, and released by a revenue ops team. Not built — this prototype only surfaces the hold and its reason.',
     icon: ShieldAlert,
     status: 'planned',
   },
@@ -146,11 +146,11 @@ const OPEN_QUESTIONS = [
 const PHASES = [
   {
     label: 'Phase 1 · Built',
-    scope: 'Single-cycle walkthrough of all six pipeline steps across seven global deals, the Product Information Service catalog/price books/bundles, and the New Frontiers segment — the four tabs today.',
+    scope: 'Single-cycle walkthrough of all six pipeline steps across seven global deals, the Product Information Service catalog/price books/bundles, and the New Frontiers segment — the first three tabs today.',
   },
   {
     label: 'Phase 2',
-    scope: 'Revenue/billing ops exception workspace for the four held deals in this demo — assign, investigate, resolve, and reprocess.',
+    scope: 'Revenue/billing ops exception workspace for the six held deals in this demo — assign, investigate, resolve, and reprocess.',
   },
   {
     label: 'Phase 3',
