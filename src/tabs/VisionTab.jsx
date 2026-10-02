@@ -19,8 +19,10 @@ import {
   BookOpenCheck,
   ArrowDown,
   Radio,
+  Bot,
 } from 'lucide-react'
 import { SectionCard, StepStatusBadge } from '../components/ui.jsx'
+import { NORTH_STAR_METRIC } from '../data/lifecycle.js'
 
 const ARCH_STEPS = [
   {
@@ -72,6 +74,12 @@ const ARCH_STEPS = [
     status: 'planned',
   },
   {
+    title: 'Agent-initiated purchasing & agent-to-agent billing',
+    detail: "Northlane Copilot bills an AI product's own token consumption today — but an autonomous buying agent transacting directly against a commerce API on a customer's behalf is a distinct capability: agent identity/authorization, spend limits, and billing an agent-to-agent transaction aren't modeled yet. Discussed as a primitive in New Frontiers — not built.",
+    icon: Bot,
+    status: 'planned',
+  },
+  {
     title: 'Continuous / streaming metering',
     detail: 'Rates usage as it happens instead of batching it to period close, closing the exact gap a batch pipeline outage creates. Discussed in New Frontiers — not built.',
     icon: Radio,
@@ -105,6 +113,7 @@ const NON_GOALS = [
   'No general tax engine — only the one Brazil IRRF withholding illustration on Vantage Retail Group.',
   'No revenue/billing ops exception workspace — held deals surface a reason but aren\'t yet workable by a team (assign, comment, resolve, reprocess).',
   'No continuous/streaming metering — usage is simulated as a single batched figure per billing cycle.',
+  'No agent-initiated purchase flow — Copilot bills a product\'s own AI usage, but doesn\'t yet support an autonomous buying agent transacting against a commerce API on a customer\'s behalf.',
 ]
 
 const OPEN_QUESTIONS = [
@@ -127,6 +136,10 @@ const OPEN_QUESTIONS = [
   {
     q: 'FX rev-rec policy',
     detail: 'For a case like Solstice Robotics (rate lock expired before invoicing), does finance restate the period at the new rate or true it up in the next close?',
+  },
+  {
+    q: 'Agentic buyer governance',
+    detail: "If a customer's own purchasing agent can transact directly against this platform, who sets its spend limits, and how is a runaway or compromised buying agent distinguished from a legitimate one — the same anomaly-detection judgment used for usage volume (Bellwether Analytics), now applied to a purchasing decision instead?",
   },
 ]
 
@@ -203,7 +216,15 @@ export default function VisionTab() {
         </p>
       </SectionCard>
 
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid gap-4 sm:grid-cols-3">
+        <div className="rounded-xl border border-emerald-500/30 bg-emerald-500/[0.04] p-5">
+          <div className="mb-2 flex items-center gap-2">
+            <Target size={15} className="text-emerald-400" />
+            <span className="text-xs font-medium uppercase tracking-wide text-emerald-500/80">North Star</span>
+          </div>
+          <div className="font-mono text-lg font-semibold text-emerald-300">{NORTH_STAR_METRIC.name}</div>
+          <div className="mt-1 text-xs text-slate-400">{NORTH_STAR_METRIC.definition}</div>
+        </div>
         <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-5">
           <div className="mb-2 flex items-center gap-2">
             <Target size={15} className="text-sky-400" />

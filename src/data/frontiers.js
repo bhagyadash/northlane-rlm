@@ -131,6 +131,38 @@ export const PRIMITIVES = [
   },
 ]
 
+// Metrics that track progress on the emerging-RLM shift itself, as distinct from the
+// Lifecycle Console's per-step operational metrics (see STEP_METRICS in
+// src/data/lifecycle.js) — these are "are we actually winning at the next-gen shift,"
+// not "is today's pipeline running well."
+export const FRONTIER_METRICS = [
+  {
+    metric: 'Time-to-cash for a multi-party transaction',
+    definition: "How long it takes the ISV's own share of a sale to actually land as cash, not just how long it takes to invoice the end customer.",
+    evidence: "Today, in a batch distributor model, ~45–60 days (see the For Pax8 tab's worked example) — the metric to drive toward same-day.",
+  },
+  {
+    metric: 'Reconciliation mismatch rate',
+    definition: '% of multi-party transactions where the legs disagree with each other before they settle.',
+    evidence: "The CloudRelay/Sable & Voss attribution gap (DEAL-3302) is exactly this failure surfacing — one shared ledger event (vs. three independent reconciliations) is what drives this toward zero.",
+  },
+  {
+    metric: '% of usage rated in real time (streaming vs. batch)',
+    definition: 'Share of consumption-based revenue priced as it happens, instead of reconciled once at period close.',
+    evidence: "Bellwether Analytics' metering-pipeline outage (DEAL-3305) is exactly what batch-only rating risks — this metric tracks progress toward continuous metering.",
+  },
+  {
+    metric: 'FX exposure window',
+    definition: 'Average time between a rate lock and the invoice that actually uses it.',
+    evidence: "Solstice Robotics (DEAL-3304) shows what happens when this window blows past the tolerance band — shrinking it is what real-time settlement buys for cross-border deals.",
+  },
+  {
+    metric: 'Compliance resolution latency',
+    definition: 'Average time to clear a compliance-driven hold (a withholding certificate, customs documentation) without it silently becoming a write-off or a customer complaint.',
+    evidence: "Vantage Retail Group's withholding-tax match and Kestrel Biologics' customs hold (DEAL-3306, DEAL-3303) are both currently measured in days-to-weeks, by hand.",
+  },
+]
+
 export const CAPABILITY_GAPS = [
   {
     title: 'PIM as a transactional dependency, not a reference table',

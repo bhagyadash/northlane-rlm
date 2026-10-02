@@ -33,8 +33,8 @@ const TABS = [
   {
     key: 'pax8',
     label: 'For Pax8',
-    heading: 'For Pax8 — VP of Product, Fintech',
-    sub: 'An independent product-thinking exercise mapping this prototype to the role — not affiliated with or endorsed by Pax8.',
+    heading: 'For Pax8',
+    sub: "Applying this prototype's thinking to the shape of a multi-party marketplace, like Pax8's own business — not affiliated with or endorsed by Pax8.",
   },
 ]
 

@@ -16,10 +16,49 @@ export const STEP_LABELS = {
   cashApplication: 'Cash application',
 }
 
+// One metric per step — the single number a PM would hold a team accountable to for
+// that step, each chosen because it's the leading indicator that would have caught
+// this prototype's own held-deal case before it became a held deal.
+export const STEP_METRICS = {
+  quote: {
+    metric: 'Quote-to-book cycle time',
+    why: 'Torque Industrial shows how a policy exception (Net-90 terms) can stall this step indefinitely — the metric has to hold cycle time down without weakening the credit policy that caused the stall.',
+  },
+  fulfillment: {
+    metric: 'On-time, confirmed-delivery rate',
+    why: "Kestrel Biologics shows how a hold on even 14 of 135 units (10%) can block revenue recognition for the entire order — this metric has to be measured per-unit, not per-order.",
+  },
+  metering: {
+    metric: 'Metering data completeness rate',
+    why: 'Bellwether Analytics shows a silent pipeline outage understating a bill by ~38% — completeness is the leading indicator that catches this before it becomes a billing error.',
+  },
+  fxConversion: {
+    metric: '% of invoices issued within their FX rate-lock window',
+    why: 'Solstice Robotics shows what happens when an invoice issues after the lock expires — this metric flags the problem before revenue books at a stale rate.',
+  },
+  invoice: {
+    metric: 'First-pass invoice accuracy (% issued with zero post-issuance correction)',
+    why: "This is the one artifact the customer actually sees — a correction after the fact is the clearest trust break in the whole pipeline.",
+  },
+  cashApplication: {
+    metric: 'Auto-match rate (% of payments matched without manual research)',
+    why: "Vantage Retail Group shows why auto-match has to be smart enough to recognize a compliant short-payment (statutory withholding) as a match, not flag every variance as a problem.",
+  },
+}
+
+export const NORTH_STAR_METRIC = {
+  name: 'Straight-Through Cash Realization Rate',
+  definition:
+    '% of booked revenue that reaches correctly-matched cash, within contracted terms, with zero manual intervention across all six steps.',
+  why: "Every held deal in this prototype — a customs hold, an FX lock expiry, a metering gap, a withholding-tax match, a credit-term exception, a partner-attribution gap — is a different way this number goes down. It's the one metric that forces quoting, fulfillment, metering, FX, invoicing, and cash application to be accountable to the same outcome instead of six local optimizations.",
+  complement: 'Days Sales Outstanding (DSO) is the classic lagging complement — this North Star is the leading version of the same story.',
+}
+
 const RAW_DEALS = [
   {
     customer: 'Northfield Health',
     dealId: 'DEAL-3301',
+    channel: 'direct',
     region: 'United Kingdom',
     currency: 'GBP',
     fxRate: 1.27,
@@ -61,8 +100,10 @@ const RAW_DEALS = [
     },
   },
   {
-    customer: 'Sable & Voss (via CloudRelay)',
+    customer: 'Sable & Voss',
     dealId: 'DEAL-3302',
+    channel: 'partner',
+    partnerName: 'CloudRelay',
     region: 'Australia',
     currency: 'AUD',
     fxRate: 0.66,
@@ -108,6 +149,7 @@ const RAW_DEALS = [
   {
     customer: 'Kestrel Biologics',
     dealId: 'DEAL-3303',
+    channel: 'direct',
     region: 'Germany',
     currency: 'EUR',
     fxRate: 1.09,
@@ -153,6 +195,7 @@ const RAW_DEALS = [
   {
     customer: 'Solstice Robotics',
     dealId: 'DEAL-3304',
+    channel: 'direct',
     region: 'Japan',
     currency: 'JPY',
     fxRate: 0.0067,
@@ -198,6 +241,7 @@ const RAW_DEALS = [
   {
     customer: 'Bellwether Analytics',
     dealId: 'DEAL-3305',
+    channel: 'direct',
     region: 'United States',
     currency: 'USD',
     fxRate: 1.0,
@@ -237,6 +281,7 @@ const RAW_DEALS = [
   {
     customer: 'Vantage Retail Group',
     dealId: 'DEAL-3306',
+    channel: 'direct',
     region: 'Brazil',
     currency: 'BRL',
     fxRate: 0.19,
@@ -265,6 +310,7 @@ const RAW_DEALS = [
   {
     customer: 'Torque Industrial',
     dealId: 'DEAL-3307',
+    channel: 'direct',
     region: 'India',
     currency: 'INR',
     fxRate: 0.012,

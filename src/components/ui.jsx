@@ -125,7 +125,7 @@ export function Pill({ children, tone = 'slate' }) {
     violet: 'bg-violet-500/10 text-violet-400 ring-violet-500/30',
   }
   return (
-    <span className={`inline-flex items-center rounded-full px-2 py-0.5 text-[11px] font-medium ring-1 ring-inset ${tones[tone]}`}>
+    <span className={`inline-flex shrink-0 items-center whitespace-nowrap rounded-full px-2 py-0.5 text-[11px] font-medium ring-1 ring-inset ${tones[tone]}`}>
       {children}
     </span>
   )

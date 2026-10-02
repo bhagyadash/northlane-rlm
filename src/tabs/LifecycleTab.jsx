@@ -17,11 +17,16 @@ import {
   AlertTriangle,
   Loader2,
   Globe2,
+  Target,
 } from 'lucide-react'
-import { DEALS, STEP_ORDER } from '../data/lifecycle.js'
+import { DEALS, STEP_ORDER, NORTH_STAR_METRIC } from '../data/lifecycle.js'
 import { money } from '../lib/format.js'
-import { ReasoningStep, ThinkingStep, DecisionBanner, StatCard } from '../components/ui.jsx'
+import { ReasoningStep, ThinkingStep, DecisionBanner, StatCard, Pill } from '../components/ui.jsx'
 import LifecycleExplainer from '../components/LifecycleExplainer.jsx'
+
+function ChannelBadge({ deal }) {
+  return deal.channel === 'partner' ? <Pill tone="violet">via {deal.partnerName}</Pill> : <Pill>direct</Pill>
+}
 
 const STEP_META = {
   quote: { icon: ClipboardList, label: 'Quote & order (CPQ)' },
@@ -56,7 +61,10 @@ function DealPanel({ deal, revealCount, decisionShown, thinking }) {
             <FileText size={13} />
             {deal.dealId} · {deal.period}
           </div>
-          <div className="mt-1 text-lg font-semibold text-slate-100">{deal.customer}</div>
+          <div className="mt-1 flex flex-wrap items-center gap-2">
+            <span className="text-lg font-semibold text-slate-100">{deal.customer}</span>
+            <ChannelBadge deal={deal} />
+          </div>
           <div className="mt-0.5 flex items-center gap-1.5 text-xs text-slate-500">
             <Globe2 size={12} />
             {deal.region} · {deal.currency} · {deal.products.join(' + ')}
@@ -121,7 +129,10 @@ function QueueRow({ deal, onSelect, selected, isActive }) {
     >
       <div className="min-w-0">
         <div className="truncate text-sm font-medium text-slate-200">{deal.customer}</div>
-        <div className="text-xs text-slate-500">{deal.region} · {deal.products.join(' + ')}</div>
+        <div className="mt-1 flex flex-wrap items-center gap-1.5">
+          <ChannelBadge deal={deal} />
+          <span className="text-xs text-slate-500">{deal.region} · {deal.products.join(' + ')}</span>
+        </div>
       </div>
       <div className="flex shrink-0 items-center gap-2">
         <span className="font-mono text-xs text-slate-400">{money(deal.total, deal.currency)}</span>
@@ -251,6 +262,15 @@ export default function LifecycleTab() {
           cash application — not a progress bar. Seven deals span five currencies, a hardware customs hold, a
           marketplace-partner attribution gap, an expired FX rate lock, a metering-pipeline outage, and a statutory
           withholding-tax reconciliation. When a step can't clear, the trail says exactly why and holds the deal.
+        </p>
+      </div>
+
+      <div className="flex items-start gap-2 rounded-xl border border-emerald-500/25 bg-emerald-500/[0.05] px-4 py-3 text-xs text-emerald-100/80">
+        <Target size={14} className="mt-0.5 shrink-0 text-emerald-400" />
+        <p>
+          <span className="font-medium text-emerald-300">North Star — {NORTH_STAR_METRIC.name}: </span>
+          {NORTH_STAR_METRIC.definition} Open the primer below for the one metric to optimize at each of the six
+          steps.
         </p>
       </div>
 

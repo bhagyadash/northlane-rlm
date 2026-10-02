@@ -31,9 +31,13 @@ Voss via CloudRelay), a customs hold on hardware (Kestrel Biologics), an expired
 rate lock (Solstice Robotics), a metering-pipeline outage (Bellwether Analytics), a
 statutory withholding-tax reconciliation (Vantage Retail Group), or a credit-term
 exception that blocks an order from booking at all (Torque Industrial). Every processed
-deal is retained in a history list with its full trail re-openable later. A collapsed-by-
-default **"New to quote-to-cash? Start here"** primer explains the six pipeline steps in
-plain English for anyone unfamiliar with the concept.
+deal is retained in a history list with its full trail re-openable later. Six of the
+seven deals are direct (Northlane selling its own product), one flows through a
+marketplace distributor (CloudRelay) — tagged with a "direct" / "via CloudRelay" badge
+on every deal. An always-visible banner states the **North Star metric** (Straight-
+Through Cash Realization Rate), and a collapsed-by-default **"New to quote-to-cash?
+Start here"** primer explains who's who, walks through the six pipeline steps in plain
+English, and names the one metric to optimize at each step.
 
 **Product Information tab** — the Product Information Service (PIM): the product
 catalog, localized price books across all seven currencies, and bundle definitions that
@@ -46,21 +50,22 @@ billing, token consumption, and settlement are moving past the subscription-era
 platforms (Zuora, Salesforce Revenue Cloud, Stripe Billing, Workday), including
 multi-party marketplace settlement in the style of Pax8. A five-era history of what
 triggers a charge, a conventional-vs-emerging RLM comparison table, six concrete future
-commerce primitives, and capability gaps a conventional platform has to close — each
-grounded in a specific deal from the Lifecycle Console as evidence, not a hypothetical.
+commerce primitives, capability gaps a conventional platform has to close, and a
+**metrics** section (time-to-cash, reconciliation mismatch rate, % of usage rated in
+real time, FX exposure window, compliance resolution latency) — each grounded in a
+specific deal from the Lifecycle Console as evidence, not a hypothetical.
 
-**Vision & requirements tab** — problem statement, targets, system architecture (built
-vs. planned across all six domains), non-goals, open questions, and phasing for what a
-production version needs next.
+**Vision & requirements tab** — problem statement, a North Star metric plus two
+supporting targets, system architecture (built vs. planned across all six domains,
+including agent-initiated purchasing / agent-to-agent billing as a planned capability),
+non-goals, open questions, and phasing for what a production version needs next.
 
-**For Pax8 tab** — an independent product-thinking exercise prepared ahead of an
-interview conversation for Pax8's VP of Product, Fintech role, mapping each of the
-role's seven pillars to where this prototype already reflects that thinking (and where
-a prototype honestly can't stand in for real experience, e.g. team leadership). Includes
-a worked four-party marketplace settlement example (end customer → reselling MSP →
-distributor → ISV) built on Northlane's own catalog pricing, a today-vs-next-gen
-settlement comparison, and four concrete product bets. Not affiliated with, endorsed by,
-or built using any non-public information from Pax8.
+**For Pax8 tab** — applies this prototype's thinking to the shape of a multi-party
+marketplace, like Pax8's own business. Includes a worked four-party marketplace
+settlement example (end customer → reselling MSP → distributor → ISV) built on
+Northlane's own catalog pricing, a today-vs-next-gen settlement comparison, and four
+concrete product bets, each with the metric that tells you if it's working. Not
+affiliated with, endorsed by, or built using any non-public information from Pax8.
 
 ## What's real vs. assumed
 

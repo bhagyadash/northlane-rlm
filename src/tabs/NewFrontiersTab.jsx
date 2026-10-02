@@ -1,6 +1,6 @@
 import React from 'react'
-import { History, ArrowRightLeft, Wrench, BookOpen, Sparkles, ArrowRight } from 'lucide-react'
-import { ERAS, COMPARISON_ROWS, PRIMITIVES, CAPABILITY_GAPS } from '../data/frontiers.js'
+import { History, ArrowRightLeft, Wrench, BookOpen, Sparkles, ArrowRight, Gauge } from 'lucide-react'
+import { ERAS, COMPARISON_ROWS, PRIMITIVES, CAPABILITY_GAPS, FRONTIER_METRICS } from '../data/frontiers.js'
 import { DEALS } from '../data/lifecycle.js'
 import { SectionCard, Pill } from '../components/ui.jsx'
 
@@ -108,6 +108,18 @@ export default function NewFrontiersTab() {
         <div className="grid gap-3 sm:grid-cols-2">
           {PRIMITIVES.map((p) => (
             <PrimitiveCard key={p.title} p={p} />
+          ))}
+        </div>
+      </SectionCard>
+
+      <SectionCard icon={Gauge} title="Metrics that matter in emerging RLM" sub="How you'd know the shift is actually working — not the Lifecycle Console's day-to-day operating metrics, but whether the next-gen bets are paying off.">
+        <div className="grid gap-3 sm:grid-cols-2">
+          {FRONTIER_METRICS.map((m) => (
+            <div key={m.metric} className="rounded-lg border border-slate-800 bg-slate-950/40 p-4">
+              <div className="mb-1.5 text-sm font-medium text-slate-200">{m.metric}</div>
+              <p className="text-xs leading-relaxed text-slate-400">{m.definition}</p>
+              <p className="mt-2 text-[11px] leading-relaxed text-violet-300/90">{m.evidence}</p>
+            </div>
           ))}
         </div>
       </SectionCard>

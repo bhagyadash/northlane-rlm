@@ -1,54 +1,8 @@
 import React from 'react'
-import {
-  Target,
-  ShieldCheck,
-  Sparkles,
-  HeartHandshake,
-  Users,
-  GraduationCap,
-  Lightbulb,
-  ExternalLink,
-  Info,
-  Workflow,
-  ArrowRight,
-  Rocket,
-} from 'lucide-react'
-import { ROLE, PILLARS, SETTLEMENT_EXAMPLE, SETTLEMENT_TIMING, NEXT_BETS } from '../data/pax8.js'
+import { Sparkles, Info, ArrowRight, Rocket, Gauge } from 'lucide-react'
+import { SETTLEMENT_EXAMPLE, SETTLEMENT_TIMING, NEXT_BETS } from '../data/pax8.js'
 import { money } from '../lib/format.js'
-import { SectionCard, Pill } from '../components/ui.jsx'
-
-const ICONS = { Target, ShieldCheck, Sparkles, HeartHandshake, Users, GraduationCap, Lightbulb }
-
-function PillarCard({ pillar }) {
-  const Icon = ICONS[pillar.icon]
-  return (
-    <div className="rounded-lg border border-slate-800 bg-slate-950/40 p-4">
-      <div className="mb-2 flex items-center gap-2">
-        <Icon size={15} className="text-violet-400" />
-        <span className="text-sm font-medium text-slate-200">{pillar.title}</span>
-      </div>
-      <div className="flex flex-col gap-1.5 text-xs">
-        <div className="flex items-start gap-2">
-          <span className="mt-0.5 w-16 shrink-0 text-slate-600">The ask</span>
-          <span className="text-slate-400">{pillar.ask}</span>
-        </div>
-        <div className="flex items-start gap-2">
-          <span className="mt-0.5 w-16 shrink-0 text-violet-400">My take</span>
-          <span className="text-slate-300">{pillar.response}</span>
-        </div>
-      </div>
-      {pillar.tieIns.length > 0 && (
-        <div className="mt-2.5 flex flex-wrap gap-1.5">
-          {pillar.tieIns.map((t) => (
-            <Pill key={t} tone="violet">
-              {t}
-            </Pill>
-          ))}
-        </div>
-      )}
-    </div>
-  )
-}
+import { SectionCard } from '../components/ui.jsx'
 
 function SettlementWaterfall() {
   const { seats, product, parties, pricePerSeat } = SETTLEMENT_EXAMPLE
@@ -111,35 +65,12 @@ export default function Pax8Tab() {
       <div className="flex items-start gap-2 rounded-xl border border-violet-500/25 bg-violet-500/[0.05] px-4 py-3 text-xs text-violet-200/80">
         <Info size={14} className="mt-0.5 shrink-0 text-violet-400" />
         <p>
-          This tab is an independent product-thinking exercise prepared ahead of an interview conversation for
-          Pax8's{' '}
-          <a href={ROLE.url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-violet-300 underline decoration-violet-500/40 underline-offset-2 hover:text-violet-200">
-            {ROLE.title} role ({ROLE.reqId})
-            <ExternalLink size={11} />
-          </a>
-          . It is not affiliated with, endorsed by, or built using any non-public information from Pax8 — the
-          marketplace mechanics below are modeled on publicly known patterns of how cloud marketplaces work, not
+          This tab applies the Lifecycle Console's thinking to the shape of a multi-party marketplace, like Pax8's
+          own business. It is not affiliated with, endorsed by, or built using any non-public information from
+          Pax8 — the mechanics below are modeled on publicly known patterns of how cloud marketplaces work, not
           Pax8's actual systems, and every figure is invented for this demo.
         </p>
       </div>
-
-      <SectionCard icon={Workflow} title="Why this prototype maps to the role" sub="Built independently, before this conversation, across the same six domains the role owns.">
-        <p className="text-sm leading-relaxed text-slate-300">
-          The role's scope — quoting, fulfillment, metering, FX, order-to-cash, and product information, plus an
-          emerging "AI commerce" layer on top — is the same scope this entire prototype was built around. The seven
-          pillars below take each part of the role and point at exactly where in this prototype that thinking already
-          shows up, and where a prototype can't stand in for real experience, I've said so directly instead of
-          stretching a feature to cover it.
-        </p>
-      </SectionCard>
-
-      <SectionCard icon={Target} title="Role pillars, mapped" sub="What each pillar asks for, and how this prototype already reflects that thinking.">
-        <div className="grid gap-3 sm:grid-cols-2">
-          {PILLARS.map((p) => (
-            <PillarCard key={p.key} pillar={p} />
-          ))}
-        </div>
-      </SectionCard>
 
       <SectionCard
         icon={Sparkles}
@@ -172,12 +103,19 @@ export default function Pax8Tab() {
         </div>
       </SectionCard>
 
-      <SectionCard icon={Rocket} title="What I'd propose building next" sub="Four specific bets, not commentary.">
+      <SectionCard icon={Rocket} title="What I'd propose building next" sub="Four specific bets, each with the metric that tells you if it's working.">
         <div className="grid gap-3 sm:grid-cols-2">
           {NEXT_BETS.map((b) => (
             <div key={b.title} className="rounded-lg border border-slate-800 bg-slate-950/40 p-4">
               <div className="mb-1.5 text-sm font-medium text-slate-200">{b.title}</div>
               <p className="text-xs leading-relaxed text-slate-400">{b.detail}</p>
+              <div className="mt-2.5 flex items-start gap-1.5 rounded-md border border-emerald-500/20 bg-emerald-500/[0.05] px-2.5 py-1.5">
+                <Gauge size={12} className="mt-0.5 shrink-0 text-emerald-400" />
+                <p className="text-[11px] leading-relaxed text-emerald-300">
+                  <span className="font-medium">Metric to optimize — </span>
+                  {b.metric}
+                </p>
+              </div>
             </div>
           ))}
         </div>
